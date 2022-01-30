@@ -1,0 +1,27 @@
+<div class="container"><h2>Latest Book</h2></div>
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Author</th>
+                <th scope="col">Year</th>
+                <th scope="col">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf="(latest | json) == '{}'">
+                <td colspan="5">There is no latest book yet</td>
+            </tr>
+            <tr *ngIf="(latest | json) != '{}'">
+                <th>{{latest.id}}</th>
+                <td>{{latest.name}}</td>
+                <td>{{latest.author}}</td>
+                <td>{{latest.year}}</td>
+                <td>{{latest.price}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <button type="button" class="btn btn-primary" (click)="RedirectToLibrary()" style="margin:5px">Return to library</button>
+</div>
