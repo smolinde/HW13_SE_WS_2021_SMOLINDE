@@ -15,12 +15,12 @@ export class AddbookComponent implements OnInit {
   public book: Book = {} as Book;
   ngOnInit(): void {
   }
-  addbookFormSubmit () {
+  async addbookFormSubmit () {
     this._service.addBookToServer(this.book)
+    await new Promise(f => setTimeout(f, 100));
     this._route.navigate(['../'])
   }
-  RedirectToLibrary() {
+  BackToLibrary() {
     this._route.navigate(['../'])
-    window.location.reload();
   }
 }

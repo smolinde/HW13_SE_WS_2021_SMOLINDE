@@ -29,8 +29,9 @@ export class ViewbooksComponent implements OnInit {
   RedirectToLatest() {
     this._route.navigate(['/latestbook'])
   }
-  deleteBookById(id:number) {
+  async deleteBookById(id:number) {
     this._service.deleteBookFromServer(id);
+    await new Promise(f => setTimeout(f, 50));
     window.location.reload();
   }
 }
